@@ -38,7 +38,7 @@
             // 
             this.SCORE.AutoSize = true;
             this.SCORE.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.SCORE.Location = new System.Drawing.Point(1119, 15);
+            this.SCORE.Location = new System.Drawing.Point(1131, 15);
             this.SCORE.Name = "SCORE";
             this.SCORE.Size = new System.Drawing.Size(129, 36);
             this.SCORE.TabIndex = 0;
@@ -61,11 +61,12 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(-1, -1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1379, 902);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // InvaderGame
             // 
@@ -73,9 +74,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1378, 894);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.SCOREBox);
             this.Controls.Add(this.SCORE);
+            this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "InvaderGame";
             this.Text = "インベーダーゲーム";
