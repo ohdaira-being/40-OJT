@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-
 
 namespace InvaderGame
 {
@@ -83,10 +77,29 @@ namespace InvaderGame
        
         private void Form1_Load(object sender, EventArgs e)
         {
+            //描画先とするImageオブジェクトを作成する
+            Bitmap canvas = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            //ImageオブジェクトのGraphicsオブジェクトを作成する
+            Graphics g = Graphics.FromImage(canvas);
+
+            //Penオブジェクトの作成(幅5の白色)
+            Pen whitePen = new Pen(Color.White, 5);
+
+            //ダッシュ
+            whitePen.DashStyle = DashStyle.Dash;
+            //線を描画
+            g.DrawLine(whitePen, 10, 500, 1300, 500);
+
+            //ペンを解放する
+            whitePen.Dispose();
+            g.Dispose();
+
+            //pictureBox1に表示する
+            pictureBox1.Image = canvas;
 
             InitGraphics();
             SetStartPosition();
-
+            //敵を描画
             DrawEnemyPictureBox();
 
             Enemies = new Enemy[EnemiesCount];
@@ -137,15 +150,17 @@ namespace InvaderGame
                 Enemies[i + 1].positionsX = Enemies[i].positionsX + 60;
                 Enemies[i + 1].positionsY = Enemies[44].positionsY;
             }
-            for (int i = 0; i < Enemies.Length; i++)
-            {
-                Enemies[i]. Move();
+
+            //for (int i = 0; i < Enemies.Length; i++)
+            //{
+            //    Enemies[i]. Move();
+            //}
+
+     
+
             }
 
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+            private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -212,9 +227,28 @@ namespace InvaderGame
             for (int i = 0; i < EnemiesCount; i++)
             {
                 Enemies[i].Move();
+             
+                    if (Enemies[i].positionsY >= 475)
+                    {
+                    //タイマーを停止
+                    timer.Stop();
+                        //次画面を非表示
+                        this.Visible = false;
+
+                        //成績画面2を表示
+                        Seiseki f2 = new Seiseki();
+                        f2.Show();
+                    break;
+                    }
+
             }
 
             nowTime = nowTime + 1;
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
 
         }
     }

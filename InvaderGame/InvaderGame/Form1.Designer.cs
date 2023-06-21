@@ -67,6 +67,7 @@
             this.pictureBoxSpaceship.Size = new System.Drawing.Size(118, 63);
             this.pictureBoxSpaceship.TabIndex = 3;
             this.pictureBoxSpaceship.TabStop = false;
+            // 
             // timer
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
@@ -74,15 +75,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1298, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 18);
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.Location = new System.Drawing.Point(1264, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 36);
             this.label1.TabIndex = 4;
             this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // InvaderGame
             // 
