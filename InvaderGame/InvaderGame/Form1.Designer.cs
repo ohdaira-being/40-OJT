@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.SCORE = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxSpaceship = new System.Windows.Forms.PictureBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpaceship)).BeginInit();
@@ -65,6 +67,9 @@
             this.pictureBoxSpaceship.Size = new System.Drawing.Size(118, 63);
             this.pictureBoxSpaceship.TabIndex = 3;
             this.pictureBoxSpaceship.TabStop = false;
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // label1
             // 
@@ -72,6 +77,10 @@
             this.label1.Location = new System.Drawing.Point(1298, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 18);
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.Location = new System.Drawing.Point(1264, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(102, 36);
             this.label1.TabIndex = 4;
             this.label1.Text = "label1";
             // 
@@ -102,6 +111,7 @@
         private System.Windows.Forms.Label SCORE;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBoxSpaceship;
+        private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label label1;
     }
 }
