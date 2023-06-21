@@ -27,14 +27,19 @@ namespace InvaderGame
             {
                 MoveLeft();
             }
+            else if (e.KeyCode == Keys.A)
+            {
+                MoveLeft();
+            }
             else if (e.KeyCode == Keys.Right)
             {
                 MoveRight();
             }
-            else if (e.KeyCode == Keys.Space)
-            {
-            }
             else if (e.KeyCode == Keys.S)
+            {
+                MoveRight();
+            }
+            else if (e.KeyCode == Keys.Space)
             {
             }
         }
@@ -43,15 +48,29 @@ namespace InvaderGame
         {
             Point pt = pictureBoxSpaceship.Location;
             pt.X -= 10;
+            if (pt.X <= -10)  //左端に来た時の判定
+            {
+                pt.X += 10;
+            }
             pictureBoxSpaceship.Location = pt;
+
+           
         }
 
         void MoveRight()
         {
             Point pt = pictureBoxSpaceship.Location;
             pt.X += 10;
+            if (pt.X >= 760)  //右端に来た時の判定
+            {
+                pt.X -= 10;
+            }
             pictureBoxSpaceship.Location = pt;
+
+            
+
         }
+       
         private void Form1_Load(object sender, EventArgs e)
         {
            
