@@ -18,30 +18,74 @@ namespace InvaderGame
         {
             InitializeComponent();
         }
-
+  
         //クラス共通の変数
         private Bitmap canvas; //描画領域 
         private Enemy[] Enemies; //複数の敵を管理する配列
-        private int EnemiesCount = 11; //敵の数
-        private Brush[] brushes; //敵を塗る配列
+        private int EnemiesCount = 55; //敵の数
+        private Brush brushes = Brushes.White; //敵を塗る配列
         private double nowTime = 0; //経過時間
-        private int positionY; //敵のY座標
         
-    
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            InitGraphics();
+            SetStartPosition();
+
             DrawEnemyPictureBox();
+
             Enemies = new Enemy[EnemiesCount];
             for (int i = 0; i < EnemiesCount; i++)
             {
-                Enemies[i] = new Enemy(pictureBox1, canvas, brushes[i]);
+                Enemies[i] = new Enemy(pictureBox1, canvas, brushes);
+            }
+            Enemies[0].positionsX = 10;
+            Enemies[0].positionsY = 10;
+
+            for (int i = 0; i < 10; i++)
+            {
+                Enemies[i + 1].positionsX = Enemies[i].positionsX + 60;
+                Enemies[i + 1].positionsY = Enemies[0].positionsY;
+            }
+            Enemies[11].positionsX = 10;
+            Enemies[11].positionsY = 50;
+
+            for (int i = 11; i < 21; i++)
+            {
+                Enemies[i + 1].positionsX = Enemies[i].positionsX + 60;
+                Enemies[i + 1].positionsY = Enemies[11].positionsY;
             }
 
+            Enemies[22].positionsX = 10;
+            Enemies[22].positionsY = 90;
+
+            for (int i = 22; i < 32; i++)
+            {
+                Enemies[i + 1].positionsX = Enemies[i].positionsX + 60;
+                Enemies[i + 1].positionsY = Enemies[22].positionsY;
+            }
+
+            Enemies[33].positionsX = 10;
+            Enemies[33].positionsY = 130;
+
+            for (int i = 33; i < 43; i++)
+            {
+                Enemies[i + 1].positionsX = Enemies[i].positionsX + 60;
+                Enemies[i + 1].positionsY = Enemies[33].positionsY;
+            }
+
+            Enemies[44].positionsX = 10;
+            Enemies[44].positionsY = 170;
+
+            for (int i = 44; i < 54; i++)
+            {
+                Enemies[i + 1].positionsX = Enemies[i].positionsX + 60;
+                Enemies[i + 1].positionsY = Enemies[44].positionsY;
+            }
             for (int i = 0; i < Enemies.Length; i++)
             {
-                Enemies[i] = Move();
+                Enemies[i]. Move();
             }
 
 
@@ -73,31 +117,23 @@ namespace InvaderGame
             //描画先とするImageオブジェクトを作成する
             if (canvas == null)
             {
-                Bitmap canvas = new Bitmap(width, height);
+                canvas = new Bitmap(width, height);
             }
-        
-         using (Graphics g = Graphics.FromImage(canvas))
 
-            g.FillRectangle(whiteBrush, x, y, 50, 30);
+            using (Graphics g = Graphics.FromImage(canvas))
+
+                g.FillRectangle(whiteBrush, x, y, 50, 30);
             pictureBox1.Image = canvas;
         }
         //配列の初期化、画面の初期設定を行う
         private void InitGraphics()
         {
-            brushes = new Brush[EnemiesCount];
+    
             Enemies = new Enemy[EnemiesCount];
 
             //ブラシ色の設定
-            brushes[0] = Brushes.White;
-            brushes[2] = Brushes.White;
-            brushes[3] = Brushes.White;
-            brushes[4] = Brushes.White;
-            brushes[5] = Brushes.White;
-            brushes[6] = Brushes.White;
-            brushes[7] = Brushes.White;
-            brushes[8] = Brushes.White;
-            brushes[9] = Brushes.White;
-            brushes[10] = Brushes.White;
+            brushes = Brushes.White;
+           
         }
         //敵のインスタンス作成と列に敵を描く
         private void SetStartPosition()
@@ -105,32 +141,22 @@ namespace InvaderGame
             //敵のインスタンス作成
             for (int i = 0; i < EnemiesCount; i++)
             {
-                Enemies[i] = new Enemy(pictureBox1, canvas, brushes[i]);
+                Enemies[i] = new Enemy(pictureBox1, canvas, brushes);
             }
-            //列に敵を描く
-
-            int MaxY = pictureBox1.Height;
-            int MaxX = pictureBox1.Width;
-
-            SetEnemies(MaxX, MaxY);
 
            //タイマーをスタートさせる
             nowTime = 0;
             timer.Start();
         }
-        //引数の位置情報を利用して列に敵を描く
-        private void SetEnemies(int x, int y)
-        {
-            int MaxY = pictureBox1.Height;
-            int MaxX = pictureBox1.Width;
-            int NextX;
-            int NextY;
 
-            for(int i = 0; i < EnemiesCount; i++)
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < EnemiesCount; i++)
             {
-                NextX = 
-                NextY = 
+                Enemies[i].Move();
             }
+
+            nowTime = nowTime + 1;
         }
     }
 }

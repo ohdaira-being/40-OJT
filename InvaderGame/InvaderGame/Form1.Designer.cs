@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.SCORE = new System.Windows.Forms.Label();
-            this.SCOREBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,19 +47,6 @@
             this.SCORE.Text = "SCORE";
             this.SCORE.Click += new System.EventHandler(this.label1_Click);
             // 
-            // SCOREBox
-            // 
-            this.SCOREBox.BackColor = System.Drawing.Color.Black;
-            this.SCOREBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SCOREBox.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.SCOREBox.ForeColor = System.Drawing.Color.White;
-            this.SCOREBox.Location = new System.Drawing.Point(1266, 15);
-            this.SCOREBox.Name = "SCOREBox";
-            this.SCOREBox.Size = new System.Drawing.Size(100, 36);
-            this.SCOREBox.TabIndex = 1;
-            this.SCOREBox.Text = "0";
-            this.SCOREBox.TextChanged += new System.EventHandler(this.SCOREBox_TextChanged);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -70,13 +57,27 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.Location = new System.Drawing.Point(1264, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(102, 36);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "label1";
+            // 
             // InvaderGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1378, 894);
-            this.Controls.Add(this.SCOREBox);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.SCORE);
             this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.Color.White;
@@ -92,9 +93,9 @@
         #endregion
 
         private System.Windows.Forms.Label SCORE;
-        private System.Windows.Forms.TextBox SCOREBox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label label1;
     }
 }
 

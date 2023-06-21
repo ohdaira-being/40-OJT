@@ -14,18 +14,19 @@ namespace InvaderGame
     {
         //クラスに必要な情報の定義
         public int pitch; //移動簿割合
+        public int positionsX; //横位置
+        public int positionsY; //縦位置
+        public int previousX; //以前の横位置
+        public int previousY; //以前の縦位置
+        public int directionX; //移動方向（ｘ座標、+1 or -1)
+        public int directionY; //移動方向（y座標、+1 or -1)
+        public int width; //敵の幅
 
         private PictureBox pictureBox; //描画するPictureBox
         private Bitmap canvas; //描画するキャンバス
         private Brush brushColor; //塗りつぶす色
-        private int positionsX; //横位置
-        private int positionsY; //縦位置
-        private int previousX; //以前の横位置
-        private int previousY; //以前の縦位置
-        private int directionX; //移動方向（ｘ座標、+1 or -1)
-        private int directionY; //移動方向（y座標、+1 or -1)
-        private int width; //敵の幅
-        private int height; //敵の高さ
+        
+  
 
         //敵コンストラクタ
         //3つの引数を指定し、クラス内部に保持する。3つの引数は描画するPictureBox、描画するキャンバス、塗りつぶす色
@@ -35,8 +36,7 @@ namespace InvaderGame
             canvas = cv;　//描画するキャンバス
             brushColor = cl; //塗りつぶす色
 
-            width = 50; //幅の初期設定
-            pitch = width; //移動の割合
+            pitch = 5; //移動の割合
             directionX = 0; //移動方向を0で初期設定
             directionY = +1; //移動方向を+1で初期設定
         }
@@ -90,6 +90,10 @@ namespace InvaderGame
             //新しい移動先の計算
             int x = positionsX + pitch * directionX;
             int y = positionsY + pitch * directionY;
+
+            //新しい位置の計算
+            positionsX = x + directionX;
+            positionsY = y + directionY;
 
             //新しい位置に描画
             PutEnemy(positionsX, positionsY);
