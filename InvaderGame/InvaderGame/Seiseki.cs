@@ -12,9 +12,11 @@ namespace InvaderGame
 {
     public partial class Seiseki : Form
     {
-        public Seiseki()
+        private string _str;
+        public Seiseki(string str)
         {
             InitializeComponent();
+            _str = str;
         }
         private void Continue_Click(object sender, EventArgs e)
         {
@@ -30,10 +32,10 @@ namespace InvaderGame
         {
 
         }
-
+ 
         private void Seiseki_Load(object sender, EventArgs e)
         {
-         
+            SCORE_Seiseki.Text = $@"{_str}";
         }
     }
 }
