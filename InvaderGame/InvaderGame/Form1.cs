@@ -38,11 +38,11 @@ namespace InvaderGame
             {
             }
         }
-  
+
         //クラス共通の変数
+        public int EnemiesCount = 55; //敵の数
         private Bitmap canvas; //描画領域 
         private Enemy[] Enemies; //複数の敵を管理する配列
-        private int EnemiesCount = 55; //敵の数
         private Brush brushes = Brushes.White; //敵を塗る配列
         private double nowTime = 0; //経過時間
         
@@ -77,6 +77,8 @@ namespace InvaderGame
        
         private void Form1_Load(object sender, EventArgs e)
         {
+            //var form = new Seiseki(label1.Text);
+
             //描画先とするImageオブジェクトを作成する
             Bitmap canvas = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             //ImageオブジェクトのGraphicsオブジェクトを作成する
@@ -236,7 +238,7 @@ namespace InvaderGame
                         this.Visible = false;
 
                         //成績画面2を表示
-                        Seiseki f2 = new Seiseki();
+                        Seiseki f2 = new Seiseki(label1.Text);
                         f2.Show();
                     break;
                     }
