@@ -34,10 +34,17 @@ namespace InvaderGame
             {
                 MoveRight();
             }
-            else if (e.KeyCode == Keys.Space)
+            else if (e.KeyCode == Keys.Space && bullets.trueFlag )
             {
+                bullets.trueFlag = false;
+
+                //if (bullets.positionsY < 0 )
+                //{
+                Bulletlaunch();
+               // }
             }
         }
+
 
         //クラス共通の変数
         public int EnemiesCount = 55; //敵の数
@@ -45,10 +52,13 @@ namespace InvaderGame
         private Enemy[] Enemies; //複数の敵を管理する配列
         private Brush brushes = Brushes.White; //敵を塗る配列
         private double nowTime = 0; //経過時間
-        
+       
+        private Bullet bullets;//弾
+        private double nowTimeB = 0; //弾の経過時間
+       
 
 
-        void MoveLeft()
+        public void MoveLeft()
         {
             Point pt = pictureBoxSpaceship.Location;
             pt.X -= 10;
@@ -61,7 +71,7 @@ namespace InvaderGame
            
         }
 
-        void MoveRight()
+        public void MoveRight()
         {
             Point pt = pictureBoxSpaceship.Location;
             pt.X += 10;
@@ -74,7 +84,37 @@ namespace InvaderGame
             
 
         }
-       
+        
+        private void Bulletlaunch()  //弾の発射処理
+        {
+            Point pt = pictureBoxSpaceship.Location;   //自機の位置に伴わせる
+            bullets.PutBullet(pt.X+40, pt.Y+6);
+            nowTimeB = 0;
+            timerB.Start();
+        }
+        private void DrawBulletPictureBox()
+        {
+            
+                //筆の作成
+                SolidBrush whiteBrush = new SolidBrush(Color.White);
+                //四角（弾）の座標
+                int x = 10;
+                int y = 500;
+                int height = pictureBox1.Height; //高さ
+                int width = pictureBox1.Width; //幅
+                                               //描画先とするImageオブジェクトを作成する
+                if (canvas == null)
+                {
+                    canvas = new Bitmap(width, height);
+                }
+
+                using (Graphics g = Graphics.FromImage(canvas))
+
+                    g.FillRectangle(whiteBrush, x, y, 10, 50);
+                pictureBox1.Image = canvas;
+            
+        }
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             //var form = new Seiseki(label1.Text);
@@ -160,9 +200,11 @@ namespace InvaderGame
 
      
 
-            }
+            
+            bullets = new Bullet(pictureBox1, canvas, Brushes.White);
+        }
 
-            private void label1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -220,12 +262,10 @@ namespace InvaderGame
             nowTime = 0;
             timer.Start();
         }
-        private void InvaderGame_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
+       
         private void timer_Tick(object sender, EventArgs e)
         {
+            
             for (int i = 0; i < EnemiesCount; i++)
             {
                 Enemies[i].Move();
@@ -249,8 +289,21 @@ namespace InvaderGame
 
         }
 
+
         private void label1_Click_1(object sender, EventArgs e)
         {
+
+        }
+        private void timerB_Tick(object sender, EventArgs e)
+        {
+            if (bullets.positionsY < 0)
+            {
+                bullets.trueFlag = true;
+            }
+            {
+                bullets.Move();
+            }
+            nowTimeB = nowTimeB + 1;
 
         }
     }
