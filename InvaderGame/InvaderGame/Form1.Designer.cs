@@ -35,8 +35,10 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.timerB = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpaceship)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // SCORE
@@ -87,14 +89,23 @@
             // 
             this.timerB.Tick += new System.EventHandler(this.timerB_Tick);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(3, 761);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(1372, 121);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
             // InvaderGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1378, 894);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBoxSpaceship);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.SCORE);
             this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.Color.White;
@@ -103,6 +114,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpaceship)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,6 +128,7 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timerB;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

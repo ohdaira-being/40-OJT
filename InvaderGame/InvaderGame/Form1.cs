@@ -91,10 +91,10 @@ namespace InvaderGame
 
         }
         
-        private void Bulletlaunch()
+        private void Bulletlaunch()  //弾の発射処理
         {
-            Point pt = pictureBoxSpaceship.Location;
-            bullets.PutBullet(pt.X+40, pt.Y);
+            Point pt = pictureBoxSpaceship.Location;   //自機の位置に伴わせる
+            bullets.PutBullet(pt.X+40, pt.Y+6);
             nowTimeB = 0;
             timerB.Start();
         }
