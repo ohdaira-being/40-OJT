@@ -34,6 +34,7 @@
             this.pictureBoxSpaceship = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.timerB = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpaceship)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +53,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.Location = new System.Drawing.Point(0, -3);
+            this.pictureBox1.Location = new System.Drawing.Point(-13, -4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1379, 902);
             this.pictureBox1.TabIndex = 2;
@@ -67,6 +68,7 @@
             this.pictureBoxSpaceship.Size = new System.Drawing.Size(118, 63);
             this.pictureBoxSpaceship.TabIndex = 3;
             this.pictureBoxSpaceship.TabStop = false;
+            // 
             // timer
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
@@ -74,15 +76,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1298, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 18);
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.Location = new System.Drawing.Point(1264, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 36);
             this.label1.TabIndex = 4;
             this.label1.Text = "label1";
+            // 
+            // timerB
+            // 
+            this.timerB.Tick += new System.EventHandler(this.timerB_Tick);
             // 
             // InvaderGame
             // 
@@ -98,7 +101,6 @@
             this.Name = "InvaderGame";
             this.Text = "インベーダーゲーム";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InvaderGame_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpaceship)).EndInit();
             this.ResumeLayout(false);
@@ -113,6 +115,7 @@
         private System.Windows.Forms.PictureBox pictureBoxSpaceship;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timerB;
     }
 }
 
