@@ -2,6 +2,9 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Linq;
+
 
 namespace InvaderGame
 {
@@ -41,11 +44,15 @@ namespace InvaderGame
 
         //クラス共通の変数
         public int EnemiesCount = 55; //敵の数
+        public int score;  //スコア
         private Bitmap canvas; //描画領域 
         private Enemy[] Enemies; //複数の敵を管理する配列
         private Brush brushes = Brushes.White; //敵を塗る配列
         private double nowTime = 0; //経過時間
-        
+        private List<Enemy> EnemyList;
+
+
+
 
 
         void MoveLeft()
@@ -105,10 +112,13 @@ namespace InvaderGame
             DrawEnemyPictureBox();
 
             Enemies = new Enemy[EnemiesCount];
+            
+
             for (int i = 0; i < EnemiesCount; i++)
             {
                 Enemies[i] = new Enemy(pictureBox1, canvas, brushes);
             }
+
             Enemies[0].positionsX = 10;
             Enemies[0].positionsY = 10;
 
@@ -153,16 +163,12 @@ namespace InvaderGame
                 Enemies[i + 1].positionsY = Enemies[44].positionsY;
             }
 
-            //for (int i = 0; i < Enemies.Length; i++)
-            //{
-            //    Enemies[i]. Move();
-            //}
+            EnemyList = new List<Enemy>();
+            EnemyList = Enemies.ToList();
 
-     
+        }
 
-            }
-
-            private void label1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -200,8 +206,10 @@ namespace InvaderGame
         //配列の初期化、画面の初期設定を行う
         private void InitGraphics()
         {
-    
+
             Enemies = new Enemy[EnemiesCount];
+            EnemyList = new List<Enemy>();
+            EnemyList = Enemies.ToList();
 
             //ブラシ色の設定
             brushes = Brushes.White;
@@ -211,42 +219,93 @@ namespace InvaderGame
         private void SetStartPosition()
         {
             //敵のインスタンス作成
-            for (int i = 0; i < EnemiesCount; i++)
-            {
-                Enemies[i] = new Enemy(pictureBox1, canvas, brushes);
-            }
+            //for (int i = 0; i < EnemiesCount; i++)
+            //{
+                //Enemies[i] = new Enemy(pictureBox1, canvas, brushes);
+            //}
+            EnemyList = new List<Enemy>();
+            EnemyList = Enemies.ToList();
 
-           //タイマーをスタートさせる
+            //タイマーをスタートさせる
             nowTime = 0;
             timer.Start();
         }
+
         private void InvaderGame_KeyDown(object sender, KeyEventArgs e)
         {
 
         }
+        //private void AtariEnemy()
+        //{
+        //    var EnemyList = new List<Enemy>();
+        //    EnemyList = Enemies.ToList();
+
+        //    for (int i = 0; i < EnemiesCount; i++)
+        //    {
+        //        if (hit = true)
+        //        {
+        //            var EnemyList = new List<Enemy>();
+        //            EnemyList = Enemies.ToList();
+        //            trueFlag = false;
+        //            EnemyList.RemoveAt(i);
+        //            score = score + 10;
+        //            label1.Text = score.ToString();
+        //        }
+        //    }
+        //}
         private void timer_Tick(object sender, EventArgs e)
         {
-            for (int i = 0; i < EnemiesCount; i++)
+           
+        
+            foreach (Enemy ListItem in EnemyList)
             {
-                Enemies[i].Move();
-             
-                    if (Enemies[i].positionsY >= 475)
-                    {
-                    //タイマーを停止
-                    timer.Stop();
-                        //次画面を非表示
-                        this.Visible = false;
+                ListItem.Move();
+            }
+            //foreach (Enemy invader in EnemyList)
+            //{
+            //    if (EnemyList[0].positionsY >= 500)
+            //    {
+            //        EnemyList.Remove(invader);
+            //        score += 10;
+            //        label1.Text = score.ToString();
 
-                        //成績画面2を表示
-                        Seiseki f2 = new Seiseki(label1.Text);
-                        f2.Show();
-                    break;
-                    }
+            //        break;
+                //}
+
+                    for (int i = EnemiesCount - 1; i >= 0; i--)
+                { 
+                    if (EnemyList[i].positionsY >= 475)
+
+                {
+                    EnemyList.RemoveAt(i);
+                    score = score + 10;
+                    label1.Text = score.ToString();
+                    EnemiesCount = EnemiesCount - 1;
+                }
+
+
+                {
+
+                    //trueFlag = false;
+
+
+                    ////タイマーを停止
+                    //timer.Stop();
+                    //    //次画面を非表示
+                    //    this.Visible = false;
+
+                    //    //成績画面2を表示
+                    //    Seiseki f2 = new Seiseki(label1.Text);
+                    //    f2.Show();
+                    //break;
+                }
 
             }
 
-            nowTime = nowTime + 1;
+            //}
 
+            nowTime = nowTime + 1;
+         
         }
 
         private void label1_Click_1(object sender, EventArgs e)
