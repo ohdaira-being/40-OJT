@@ -38,7 +38,7 @@ namespace InvaderGame
             canvas = cv;　//描画するキャンバス
             brushColor = cl; //塗りつぶす色
 
-            pitch = 8; //移動の割合
+            pitch = 10; //移動の割合
             directionX = 0; //移動方向を0で初期設定
             directionY = -3; //移動方向を-1で初期設定
 
