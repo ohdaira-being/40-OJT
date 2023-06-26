@@ -122,27 +122,25 @@ namespace InvaderGame
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //var form = new Seiseki(label1.Text);
+            ////描画先とするImageオブジェクトを作成する
+            //Bitmap canvas = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            ////ImageオブジェクトのGraphicsオブジェクトを作成する
+            //Graphics g = Graphics.FromImage(canvas);
 
-            //描画先とするImageオブジェクトを作成する
-            Bitmap canvas = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            //ImageオブジェクトのGraphicsオブジェクトを作成する
-            Graphics g = Graphics.FromImage(canvas);
+            ////Penオブジェクトの作成(幅5の白色)
+            //Pen whitePen = new Pen(Color.White, 5);
 
-            //Penオブジェクトの作成(幅5の白色)
-            Pen whitePen = new Pen(Color.White, 5);
+            ////ダッシュ
+            //whitePen.DashStyle = DashStyle.Dash;
+            ////線を描画
+            //g.DrawLine(whitePen, 10, 500, 1300, 500);
 
-            //ダッシュ
-            whitePen.DashStyle = DashStyle.Dash;
-            //線を描画
-            g.DrawLine(whitePen, 10, 500, 1300, 500);
+            ////ペンを解放する
+            //whitePen.Dispose();
+            //g.Dispose();
 
-            //ペンを解放する
-            whitePen.Dispose();
-            g.Dispose();
-
-            //pictureBox1に表示する
-            pictureBox1.Image = canvas;
+            ////pictureBox1に表示する
+            //pictureBox1.Image = canvas;
 
             InitGraphics();
             SetStartPosition();
