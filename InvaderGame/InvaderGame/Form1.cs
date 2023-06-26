@@ -93,7 +93,7 @@ namespace InvaderGame
         private void Bulletlaunch()  //弾の発射処理
         {
             Point pt = pictureBoxSpaceship.Location;   //自機の位置に伴わせる
-            bullets.PutBullet(pt.X + 40, pt.Y + 6);
+            bullets.PutBullet(pt.X + 40, pt.Y + 15);
             nowTimeB = 0;
             timerB.Start();
         }
@@ -301,10 +301,10 @@ namespace InvaderGame
         {
 
 
-            //foreach (Enemy ListItem in EnemyList)
-            //{
-            //    ListItem.Move();
-            //}
+           foreach (Enemy ListItem in EnemyList)
+            {
+                ListItem.Move();
+            }
             //foreach (Enemy invader in EnemyList)
             //{
             //    if (EnemyList[0].positionsY >= 500)
@@ -318,36 +318,18 @@ namespace InvaderGame
 
             for (int i = EnemiesCount - 1; i >= 0; i--)
             {
-                if (EnemyList[i].positionsY >= 475)
-
+                if (HitJudge(EnemyList[i], bullets))
                 {
+                    EnemyList[i].DeleteEnemy();
+                    bullets.DeleteBullet();
                     EnemyList.RemoveAt(i);
+                    bullets.PutBullet(-10, -10);
                     score = score + 10;
                     label1.Text = score.ToString();
                     EnemiesCount = EnemiesCount - 1;
+                    break;
                 }
-
-
-            }
-
-                    //trueFlag = false;
-
-
-                    ////タイマーを停止
-                    //timer.Stop();
-                    //    //次画面を非表示
-                    //    this.Visible = false;
-
-                    //    //成績画面2を表示
-                    //    Seiseki f2 = new Seiseki(label1.Text);
-                    //    f2.Show();
-                    //break;
-
-            for (int i = 0; i < EnemiesCount; i++)
-            {
-                Enemies[i].Move();
-
-                if (Enemies[i].positionsY >= 475)
+                if (EnemiesCount == 0)
                 {
                     //タイマーを停止
                     timer.Stop();
@@ -361,6 +343,45 @@ namespace InvaderGame
                 }
 
             }
+
+
+
+            for (int i = 0; i < EnemiesCount; i++)
+            {
+                if (EnemyList[i].positionsY >= 475)
+                {
+                    //タイマーを停止
+                    timer.Stop();
+                    //次画面を非表示
+                    this.Visible = false;
+
+                    //成績画面2を表示
+                    Seiseki f2 = new Seiseki(label1.Text);
+                    f2.Show();
+                    break;
+                }
+                  
+            }
+                
+
+            //for (int i = 0; i < EnemiesCount; i++)
+            //{
+            //    Enemies[i].Move();
+
+                //if (Enemies[i].positionsY >= 475)
+                //{
+                //    //タイマーを停止
+                //    timer.Stop();
+                //    //次画面を非表示
+                //    this.Visible = false;
+
+                //    //成績画面2を表示
+                //    Seiseki f2 = new Seiseki(label1.Text);
+                //    f2.Show();
+                //    break;
+                //}
+
+            //}
 
             //}
 
