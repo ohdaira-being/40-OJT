@@ -21,6 +21,7 @@ namespace InvaderGame
         public int directionX; //移動方向（ｘ座標、+1 or -1)
         public int directionY; //移動方向（y座標、+1 or -1)
         public int width; //弾の幅
+        public int height; //弾の高さ
         public bool trueFlag; //弾を打てるかの識別
 
         private PictureBox pictureBox; //描画するPictureBox
