@@ -21,6 +21,7 @@ namespace InvaderGame
         public int directionX; //移動方向（ｘ座標、+1 or -1)
         public int directionY; //移動方向（y座標、+1 or -1)
         public int width; //敵の幅
+        public int height; //敵の高さ
 
         private PictureBox pictureBox; //描画するPictureBox
         private Bitmap canvas; //描画するキャンバス
