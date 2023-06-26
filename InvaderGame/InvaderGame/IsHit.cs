@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace InvaderGame
 {
-    class Class1
+    class Ishit
     {
+      
     }
 }
