@@ -414,18 +414,31 @@ namespace InvaderGame
 
         private bool HitJudge(Enemy enemy, Bullet bullets)
         {
-            double c1 = (50) * (bullets.positionsY - enemy.positionsY) - (30) * (bullets.positionsX - enemy.positionsX);
-            double c2 = (50) * (bullets.positionsY + 25 - enemy.positionsY) - (30) * (bullets.positionsX + 5 - enemy.positionsX);
-            double c3 = (5) * (enemy.positionsY - bullets.positionsY) - (25) * (enemy.positionsX - bullets.positionsX);
-            double c4 = (5) * (enemy.positionsY + 30 - bullets.positionsY) - (25) * (enemy.positionsX + 50 - bullets.positionsX);
+            bool c1 = false;
+            if (enemy.positionsX < bullets.positionsX + 5)
+            {
+                c1 = true;
+            }
 
-            if (c1 * c2 < 0 && c3 * c4 < 0)
+            bool c2 = false;
+            if(enemy.positionsX + 50 > bullets.positionsX)
+            {
+                c2 = true;
+            }
+
+            bool c3 = false;
+            if(enemy.positionsY + 30 > bullets.positionsY)
+            {
+                c3 = true;
+            }
+
+           
+            if(c1 == true && c2 == true && c3 == true )
             {
                 return true;
             }
             else
             {
-
                 return false;
             }
         }
