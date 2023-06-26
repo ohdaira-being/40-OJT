@@ -81,9 +81,9 @@
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.Location = new System.Drawing.Point(1264, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 36);
+            this.label1.Size = new System.Drawing.Size(33, 36);
             this.label1.TabIndex = 4;
-            this.label1.Text = "100";
+            this.label1.Text = "0";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // timerB

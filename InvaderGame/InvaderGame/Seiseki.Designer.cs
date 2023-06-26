@@ -40,11 +40,13 @@
             this.SCORE_Seiseki.BackColor = System.Drawing.Color.Black;
             this.SCORE_Seiseki.Font = new System.Drawing.Font("MS UI Gothic", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.SCORE_Seiseki.ForeColor = System.Drawing.Color.White;
-            this.SCORE_Seiseki.Location = new System.Drawing.Point(600, 365);
+            this.SCORE_Seiseki.Location = new System.Drawing.Point(570, 365);
             this.SCORE_Seiseki.Name = "SCORE_Seiseki";
             this.SCORE_Seiseki.Size = new System.Drawing.Size(132, 144);
             this.SCORE_Seiseki.TabIndex = 0;
             this.SCORE_Seiseki.Text = "0";
+            this.SCORE_Seiseki.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SCORE_Seiseki.Click += new System.EventHandler(this.SCORE_Seiseki_Click);
             // 
             // Continue
             // 

@@ -23,6 +23,7 @@ namespace InvaderGame
         public int width; //敵の幅
         public int height; //敵の高さ
 
+
         private PictureBox pictureBox; //描画するPictureBox
         private Bitmap canvas; //描画するキャンバス
         private Brush brushColor; //塗りつぶす色
@@ -37,7 +38,7 @@ namespace InvaderGame
             canvas = cv;　//描画するキャンバス
             brushColor = cl; //塗りつぶす色
 
-            pitch = 5; //移動の割合
+            pitch = 1; //移動の割合
             directionX = 0; //移動方向を0で初期設定
             directionY = +1; //移動方向を+1で初期設定
         }

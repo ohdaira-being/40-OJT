@@ -37,5 +37,10 @@ namespace InvaderGame
         {
             SCORE_Seiseki.Text = $@"{_str}";
         }
+
+        private void SCORE_Seiseki_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
