@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.SCORE_Seiseki = new System.Windows.Forms.Label();
-            this.Continue = new System.Windows.Forms.Label();
-            this.erabu = new System.Windows.Forms.Label();
             this.SCORE_LOGO = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -47,30 +45,6 @@
             this.SCORE_Seiseki.Text = "0";
             this.SCORE_Seiseki.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.SCORE_Seiseki.Click += new System.EventHandler(this.SCORE_Seiseki_Click);
-            // 
-            // Continue
-            // 
-            this.Continue.AutoSize = true;
-            this.Continue.Font = new System.Drawing.Font("MS UI Gothic", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Continue.ForeColor = System.Drawing.Color.White;
-            this.Continue.Location = new System.Drawing.Point(544, 570);
-            this.Continue.Name = "Continue";
-            this.Continue.Size = new System.Drawing.Size(241, 52);
-            this.Continue.TabIndex = 1;
-            this.Continue.Text = "Continue?";
-            this.Continue.Click += new System.EventHandler(this.Continue_Click);
-            // 
-            // erabu
-            // 
-            this.erabu.AutoSize = true;
-            this.erabu.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.erabu.ForeColor = System.Drawing.Color.White;
-            this.erabu.Location = new System.Drawing.Point(617, 654);
-            this.erabu.Name = "erabu";
-            this.erabu.Size = new System.Drawing.Size(85, 40);
-            this.erabu.TabIndex = 2;
-            this.erabu.Text = "Y/S";
-            this.erabu.Click += new System.EventHandler(this.erabu_Click);
             // 
             // SCORE_LOGO
             // 
@@ -90,8 +64,6 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1378, 894);
             this.Controls.Add(this.SCORE_LOGO);
-            this.Controls.Add(this.erabu);
-            this.Controls.Add(this.Continue);
             this.Controls.Add(this.SCORE_Seiseki);
             this.Name = "Seiseki";
             this.Text = "Seiseki";
@@ -104,8 +76,6 @@
         #endregion
 
         private System.Windows.Forms.Label SCORE_Seiseki;
-        private System.Windows.Forms.Label Continue;
-        private System.Windows.Forms.Label erabu;
         private System.Windows.Forms.Label SCORE_LOGO;
     }
 }

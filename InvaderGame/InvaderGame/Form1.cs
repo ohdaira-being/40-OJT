@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
+
 namespace InvaderGame
 {
     public partial class InvaderGame : Form
@@ -155,7 +156,7 @@ namespace InvaderGame
                 Enemies[i] = new Enemy(pictureBox1, canvas, brushes);
             }
 
-            Enemies[0].positionsX = 10;
+            Enemies[0].positionsX = 70;
             Enemies[0].positionsY = 10;
 
             for (int i = 0; i < 10; i++)
@@ -163,7 +164,7 @@ namespace InvaderGame
                 Enemies[i + 1].positionsX = Enemies[i].positionsX + 60;
                 Enemies[i + 1].positionsY = Enemies[0].positionsY;
             }
-            Enemies[11].positionsX = 10;
+            Enemies[11].positionsX = 70;
             Enemies[11].positionsY = 50;
 
             for (int i = 11; i < 21; i++)
@@ -172,7 +173,7 @@ namespace InvaderGame
                 Enemies[i + 1].positionsY = Enemies[11].positionsY;
             }
 
-            Enemies[22].positionsX = 10;
+            Enemies[22].positionsX = 70;
             Enemies[22].positionsY = 90;
 
             for (int i = 22; i < 32; i++)
@@ -206,7 +207,7 @@ namespace InvaderGame
 
 
 
-            bullets = new Bullet(pictureBox1, canvas, Brushes.Red);
+            bullets = new Bullet(pictureBox1, canvas, Brushes.White);
         }
 
 
@@ -230,7 +231,7 @@ namespace InvaderGame
             //筆の作成
             SolidBrush whiteBrush = new SolidBrush(Color.White);
             //四角（敵）の大きさ
-            int x = 10;
+            int x = 70;
             int y = 10;
             int height = pictureBox1.Height; //高さ
             int width = pictureBox1.Width; //幅
@@ -327,19 +328,33 @@ namespace InvaderGame
                     EnemiesCount = EnemiesCount - 1;
                     break;
                 }
-                if (EnemiesCount == 0)
-                {
-                    //タイマーを停止
-                    timer.Stop();
-                    //次画面を非表示
-                    this.Visible = false;
+            
 
-                    //成績画面2を表示
-                    Seiseki f2 = new Seiseki(label1.Text);
-                    f2.Show();
-                    break;
+            }
+            if (EnemiesCount == 0)
+            {
+                Enemies = new Enemy[EnemiesCount];
+                for (int j = 0; j < EnemiesCount; j++)
+                {
+                    Enemies[j] = new Enemy(pictureBox1, canvas, brushes);
                 }
 
+
+                EnemyList = new List<Enemy>();
+                EnemyList = Enemies.ToList();
+
+                foreach (Enemy ListItem in EnemyList)
+                {
+                    ListItem.Move();
+                }
+                //タイマーを停止
+                timer.Stop();
+                //次画面を非表示
+                this.Visible = false;
+
+                //成績画面2を表示
+                Seiseki f2 = new Seiseki(label1.Text);
+                f2.Show();
             }
 
 
