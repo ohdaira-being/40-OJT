@@ -207,7 +207,7 @@ namespace InvaderGame
 
 
 
-            bullets = new Bullet(pictureBox1, canvas, Brushes.White);
+            bullets = new Bullet(pictureBox1, canvas, Brushes.Red);
         }
 
 
