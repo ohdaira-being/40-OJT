@@ -47,7 +47,7 @@ namespace InvaderGame
 
 
         //クラス共通の変数
-        public int EnemiesCount = 55; //敵の数
+        public int EnemiesCount = 33; //敵の数
         public int score;  //スコア
         private Bitmap canvas; //描画領域 
         private Enemy[] Enemies; //複数の敵を管理する配列
@@ -181,23 +181,23 @@ namespace InvaderGame
                 Enemies[i + 1].positionsY = Enemies[22].positionsY;
             }
 
-            Enemies[33].positionsX = 10;
-            Enemies[33].positionsY = 130;
+            //Enemies[33].positionsX = 10;
+            //Enemies[33].positionsY = 130;
 
-            for (int i = 33; i < 43; i++)
-            {
-                Enemies[i + 1].positionsX = Enemies[i].positionsX + 60;
-                Enemies[i + 1].positionsY = Enemies[33].positionsY;
-            }
+            //for (int i = 33; i < 43; i++)
+            //{
+            //    Enemies[i + 1].positionsX = Enemies[i].positionsX + 60;
+            //    Enemies[i + 1].positionsY = Enemies[33].positionsY;
+            //}
 
-            Enemies[44].positionsX = 10;
-            Enemies[44].positionsY = 170;
+            //Enemies[44].positionsX = 10;
+            //Enemies[44].positionsY = 170;
 
-            for (int i = 44; i < 54; i++)
-            {
-                Enemies[i + 1].positionsX = Enemies[i].positionsX + 60;
-                Enemies[i + 1].positionsY = Enemies[44].positionsY;
-            }
+            //for (int i = 44; i < 54; i++)
+            //{
+            //    Enemies[i + 1].positionsX = Enemies[i].positionsX + 60;
+            //    Enemies[i + 1].positionsY = Enemies[44].positionsY;
+            //}
 
             EnemyList = new List<Enemy>();
             EnemyList = Enemies.ToList();

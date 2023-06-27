@@ -102,8 +102,8 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Location = new System.Drawing.Point(-16, 742);
+            this.pictureBox3.BackColor = System.Drawing.Color.Gold;
+            this.pictureBox3.Location = new System.Drawing.Point(-16, 745);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(1417, 13);
             this.pictureBox3.TabIndex = 6;
