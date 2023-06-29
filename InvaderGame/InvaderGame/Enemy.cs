@@ -18,10 +18,12 @@ namespace InvaderGame
         public int positionsY; //縦位置
         public int previousX; //以前の横位置
         public int previousY; //以前の縦位置
-        public int directionX; //移動方向（ｘ座標、+1 or -1)
-        public int directionY; //移動方向（y座標、+1 or -1)
-        public int width; //敵の幅
-        public int height; //敵の高さ
+        public int directionX_R; //移動方向（ｘ座標、+1 or -1)   右
+        public int directionY_R; //移動方向（y座標、+1 or -1)　　右
+        public int directionX_L; //移動方向（ｘ座標、+1 or -1)　 左
+        public int directionY_L; //移動方向（y座標、+1 or -1)　  左
+        public int directionX_D; //移動方向（ｘ座標、+1 or -1)　 下
+        public int directionY_D; //移動方向（y座標、+1 or -1)　  下
 
 
         private PictureBox pictureBox; //描画するPictureBox
@@ -38,9 +40,13 @@ namespace InvaderGame
             canvas = cv;　//描画するキャンバス
             brushColor = cl; //塗りつぶす色
 
-            pitch = 1; //移動の割合
-            directionX = 0; //移動方向を0で初期設定
-            directionY = +1; //移動方向を+1で初期設定
+            pitch = 2; //移動の割合
+            directionX_R = +1; //移動方向を+1で初期設定
+            directionY_R = 0; //移動方向を0で初期設定
+            directionX_L = -1; //移動方向を-1で初期設定
+            directionY_L = 0; //移動方向を0で初期設定
+            directionX_D = 0; //移動方向を0で初期設定
+            directionY_D = +1; //移動方向を+1で初期設定
         }
         //指定した位置に敵を描く
         public void PutEnemy(int x, int y)
@@ -84,18 +90,59 @@ namespace InvaderGame
         }
 
         //指定した位置に敵を動かす
-        public void Move()
+
+        public void Move_RIGHT()
         {
             //以前の表示を削除
             DeleteEnemy();
 
             //新しい移動先の計算
-            int x = positionsX + pitch * directionX;
-            int y = positionsY + pitch * directionY;
+            int x = positionsX + pitch * directionX_R;
+            int y = positionsY + pitch * directionY_R;
 
             //新しい位置の計算
-            positionsX = x + directionX;
-            positionsY = y + directionY;
+            positionsX = x + directionX_R;
+            positionsY = y + directionY_R;
+
+            //新しい位置に描画
+            PutEnemy(positionsX, positionsY);
+
+            //新しい位置を以前の値として記憶
+            previousX = positionsX;
+            previousY = positionsY;
+        }
+        public void Move_LEFT()
+        {
+            //以前の表示を削除
+            DeleteEnemy();
+
+            //新しい移動先の計算
+            int x = positionsX + pitch * directionX_L;
+            int y = positionsY + pitch * directionY_L;
+
+            //新しい位置の計算
+            positionsX = x + directionX_L;
+            positionsY = y + directionY_L;
+
+            //新しい位置に描画
+            PutEnemy(positionsX, positionsY);
+
+            //新しい位置を以前の値として記憶
+            previousX = positionsX;
+            previousY = positionsY;
+        }
+        public void Move_DOWN()
+        {
+            //以前の表示を削除
+            DeleteEnemy();
+
+            //新しい移動先の計算
+            int x = positionsX + pitch * directionX_D;
+            int y = positionsY + pitch * directionY_D;
+
+            //新しい位置の計算
+            positionsX = x + directionX_D;
+            positionsY = y + directionY_D;
 
             //新しい位置に描画
             PutEnemy(positionsX, positionsY);

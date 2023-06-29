@@ -16,9 +16,32 @@ namespace InvaderGame
         public Seiseki(string str)
         {
             InitializeComponent();
+            KeyDown += Form_KeyDown;
             _str = str;
+
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.Image = Image.FromFile(@"C:\Users\kurosu\Desktop\OJTインベーダーゲーム\InvaderGame\InvaderGame\Image\スコア.png");
+
         }
-        private void Continue_Click(object sender, EventArgs e)
+        private void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Y)
+            {
+                //次画面を非表示
+                this.Visible = false;
+
+                //スタート画面を表示
+                StartForm f1 = new StartForm();
+                f1.Show();
+            }
+            if (e.KeyCode == Keys.N)
+            {
+                //画面を閉じる
+                this.Close();
+
+            }
+        }
+            private void Continue_Click(object sender, EventArgs e)
         {
 
         }
@@ -37,7 +60,7 @@ namespace InvaderGame
         {
             SCORE_Seiseki.Text = $@"{_str}";
 
-            if(SCORE_Seiseki.Text == "330")
+            if(SCORE_Seiseki.Text == "550")
             {
                 label1.Text = "Congratulation!!";
             }
