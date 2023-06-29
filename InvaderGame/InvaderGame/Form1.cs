@@ -19,6 +19,7 @@ namespace InvaderGame
             InitializeComponent();
 
             KeyDown += Form1_KeyDown;
+           
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -81,7 +82,7 @@ namespace InvaderGame
         {
             Point pt = pictureBoxSpaceship.Location;
             pt.X += 10;
-            if (pt.X >= 760)  //右端に来た時の判定
+            if (pt.X >= 780)  //右端に来た時の判定
             {
                 pt.X -= 10;
             }
@@ -94,7 +95,7 @@ namespace InvaderGame
         private void Bulletlaunch()  //弾の発射処理
         {
             Point pt = pictureBoxSpaceship.Location;   //自機の位置に伴わせる
-            bullets.PutBullet(pt.X + 40, pt.Y + 15);
+            bullets.PutBullet(pt.X + 35, pt.Y + 10);
             nowTimeB = 0;
             timerB.Start();
         }
@@ -124,7 +125,7 @@ namespace InvaderGame
         private void Form1_Load(object sender, EventArgs e)
         {
             ////描画先とするImageオブジェクトを作成する
-            //Bitmap canvas = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            Bitmap canvas = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             ////ImageオブジェクトのGraphicsオブジェクトを作成する
             //Graphics g = Graphics.FromImage(canvas);
 
@@ -208,6 +209,8 @@ namespace InvaderGame
 
 
             bullets = new Bullet(pictureBox1, canvas, Brushes.Red);
+            pictureBoxSpaceship.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxSpaceship.Image = Image.FromFile(@"C:\Users\homma\Desktop\OJT用\InvaderGame\InvaderGame\Image\Jiki.png");
         }
 
 
@@ -228,22 +231,39 @@ namespace InvaderGame
 
         private void DrawEnemyPictureBox()
         {
-            //筆の作成
-            SolidBrush whiteBrush = new SolidBrush(Color.White);
-            //四角（敵）の大きさ
-            int x = 70;
-            int y = 10;
-            int height = pictureBox1.Height; //高さ
-            int width = pictureBox1.Width; //幅
+             //筆の作成
+             SolidBrush whiteBrush = new SolidBrush(Color.White);
+             //四角（敵）の大きさ
+             int x = 70;
+             int y = 10;
+             int height = pictureBox1.Height; //高さ
+             int width = pictureBox1.Width; //幅
+             //描画先とするImageオブジェクトを作成する
+             //if (canvas == null)
+             //{
+             //    canvas = new Bitmap(width, height);
+             //}
+
+            // using (Graphics g = Graphics.FromImage(canvas))
+
+                 //g.FillRectangle(whiteBrush, x, y, 50, 30);
+            // pictureBox1.Image = canvas;
             //描画先とするImageオブジェクトを作成する
-            if (canvas == null)
-            {
-                canvas = new Bitmap(width, height);
-            }
+            Bitmap canvas = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            //ImageオブジェクトのGraphicsオブジェクトを作成する
+            Graphics g = Graphics.FromImage(canvas);
 
-            using (Graphics g = Graphics.FromImage(canvas))
+            //画像ファイルを読み込んで、Imageオブジェクトとして取得する
+            Image img = Image.FromFile(@"C:\Users\homma\Desktop\OJT用\InvaderGame\InvaderGame\Image\InvaderM.png");
 
-                g.FillRectangle(whiteBrush, x, y, 50, 30);
+            
+            g.DrawImage(img, x, y, 50, 30);
+            //Imageオブジェクトのリソースを解放する
+            img.Dispose();
+
+            //Graphicsオブジェクトのリソースを解放する
+            g.Dispose();
+            //PictureBox1に表示する
             pictureBox1.Image = canvas;
         }
         //配列の初期化、画面の初期設定を行う

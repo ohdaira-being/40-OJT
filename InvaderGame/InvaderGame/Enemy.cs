@@ -22,13 +22,13 @@ namespace InvaderGame
         public int directionY; //移動方向（y座標、+1 or -1)
         public int width; //敵の幅
         public int height; //敵の高さ
-
+        Image img;
 
         private PictureBox pictureBox; //描画するPictureBox
         private Bitmap canvas; //描画するキャンバス
         private Brush brushColor; //塗りつぶす色
-        
-  
+
+
 
         //敵コンストラクタ
         //3つの引数を指定し、クラス内部に保持する。3つの引数は描画するPictureBox、描画するキャンバス、塗りつぶす色
@@ -41,28 +41,39 @@ namespace InvaderGame
             pitch = 1; //移動の割合
             directionX = 0; //移動方向を0で初期設定
             directionY = +1; //移動方向を+1で初期設定
+             img = Image.FromFile(@"C:\Users\homma\Desktop\OJT用\InvaderGame\InvaderGame\Image\InvaderM.png");
         }
         //指定した位置に敵を描く
         public void PutEnemy(int x, int y)
         {
+
             //現在の位置を記憶
             positionsX = x;
             positionsY = y;
+            //画像ファイルを読み込んで、Imageオブジェクトとして取得する
+            //Image img = Image.FromFile(@"C:\Users\homma\Desktop\OJT用\InvaderGame\InvaderGame\Image\InvaderM.png");
+            //Bitmap canvas = new Bitmap(pictureBox.Width, pictureBox.Height);
 
-            using (Graphics g = Graphics.FromImage(canvas))
-            {
-                //敵をbrushColorで指定された色で描く
-                g.FillRectangle(brushColor, x, y, 50, 30);
+            //using (Graphics g = Graphics.FromImage(canvas))
+            Graphics g = Graphics.FromImage(canvas);
 
-                //pictureBox1に表示する
-                pictureBox.Image = canvas;
-            }
+            //敵をbrushColorで指定された色で描く
+            // g.FillRectangle(brushColor, x, y, 50, 30);
+            g.DrawImage(img, x, y, 50, 30);
+            //img.Dispose();
+
+            //Graphicsオブジェクトのリソースを解放する
+            g.Dispose();
+            //pictureBox1に表示する
+            pictureBox.Image = canvas;
+
 
         }
 
         //指定した位置の敵を消す（黒で書く）
         public void DeleteEnemy()
         {
+            //Bitmap canvas = new Bitmap(pictureBox.Width, pictureBox.Height);
             //初めて呼ばれて以前の値が無い場合
             if (previousX == 0)
             {
@@ -72,12 +83,18 @@ namespace InvaderGame
             {
                 previousY = positionsY;
             }
-
+            //Image img = Image.FromFile(@"C:\Users\homma\Desktop\OJT用\InvaderGame\InvaderGame\Image\Vanish.png");
             using (Graphics g = Graphics.FromImage(canvas))
+            //Graphics g = Graphics.FromImage(canvas);
             {
                 //敵を黒で描く
                 g.FillRectangle(Brushes.Black, previousX, previousY, 50, 30);
+                //g.DrawImage(img, previousX, previousY, 50, 30);
 
+                //img.Dispose();
+
+                //Graphicsオブジェクトのリソースを解放する
+                g.Dispose();
                 //pictureBox1に表示
                 pictureBox.Image = canvas;
             }
