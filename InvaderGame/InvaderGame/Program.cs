@@ -16,6 +16,7 @@ namespace InvaderGame
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new StartForm()); // ﾌｫｰﾑ2が起動
             Application.Run(new InvaderGame());
         }
     }

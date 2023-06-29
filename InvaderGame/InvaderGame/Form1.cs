@@ -375,8 +375,6 @@ namespace InvaderGame
                 }
                   
             }
-                
-
             //for (int i = 0; i < EnemiesCount; i++)
             //{
             //    Enemies[i].Move();

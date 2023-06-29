@@ -36,9 +36,19 @@ namespace InvaderGame
         private void Seiseki_Load(object sender, EventArgs e)
         {
             SCORE_Seiseki.Text = $@"{_str}";
+
+            if(SCORE_Seiseki.Text == "330")
+            {
+                label1.Text = "Congratulation!!";
+            }
         }
 
         private void SCORE_Seiseki_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SCORE_LOGO_Click(object sender, EventArgs e)
         {
 
         }

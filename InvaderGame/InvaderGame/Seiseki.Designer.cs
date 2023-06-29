@@ -30,6 +30,7 @@
         {
             this.SCORE_Seiseki = new System.Windows.Forms.Label();
             this.SCORE_LOGO = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SCORE_Seiseki
@@ -51,11 +52,24 @@
             this.SCORE_LOGO.AutoSize = true;
             this.SCORE_LOGO.Font = new System.Drawing.Font("MS UI Gothic", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.SCORE_LOGO.ForeColor = System.Drawing.Color.White;
-            this.SCORE_LOGO.Location = new System.Drawing.Point(420, 190);
+            this.SCORE_LOGO.Location = new System.Drawing.Point(373, 190);
             this.SCORE_LOGO.Name = "SCORE_LOGO";
             this.SCORE_LOGO.Size = new System.Drawing.Size(517, 144);
             this.SCORE_LOGO.TabIndex = 3;
             this.SCORE_LOGO.Text = "SCORE";
+            this.SCORE_LOGO.Click += new System.EventHandler(this.SCORE_LOGO_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.ForeColor = System.Drawing.Color.Gold;
+            this.label1.Location = new System.Drawing.Point(470, 534);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(20, 48);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "\r\n";
             // 
             // Seiseki
             // 
@@ -63,6 +77,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1378, 894);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.SCORE_LOGO);
             this.Controls.Add(this.SCORE_Seiseki);
             this.Name = "Seiseki";
@@ -77,5 +92,6 @@
 
         private System.Windows.Forms.Label SCORE_Seiseki;
         private System.Windows.Forms.Label SCORE_LOGO;
+        private System.Windows.Forms.Label label1;
     }
 }
