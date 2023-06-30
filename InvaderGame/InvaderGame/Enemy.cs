@@ -38,13 +38,13 @@ namespace InvaderGame
 
         //敵コンストラクタ
         //3つの引数を指定し、クラス内部に保持する。3つの引数は描画するPictureBox、描画するキャンバス、塗りつぶす色
-        public Enemy(PictureBox pb, Bitmap cv, Brush cl)
+        public Enemy(PictureBox pb, Bitmap cv, Brush cl,string path)
         {
             pictureBox = pb; //描画するPictureBox
             canvas = cv;　//描画するキャンバス
             brushColor = cl; //塗りつぶす色
 
-             img = Image.FromFile(@"C:\Users\kurosu\Desktop\OJTインベーダーゲーム\InvaderGame\InvaderGame\Image\InvaderM.png");
+             img = Image.FromFile(path);
 
             pitch = 2; //移動の割合
             directionX_R = +1; //移動方向を+1で初期設定

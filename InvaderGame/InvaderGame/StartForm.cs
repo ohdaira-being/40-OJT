@@ -17,7 +17,7 @@ namespace InvaderGame
             InitializeComponent();
             KeyDown += Form_KeyDown;
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.Image = Image.FromFile(@"C:\Users\kurosu\Desktop\OJTインベーダーゲーム\InvaderGame\InvaderGame\Image\タイトルロゴ(黒背景).png");
+            pictureBox1.Image = Image.FromFile(@"..\..\Image\タイトルロゴ(黒背景).png");
         }
 
         private void label1_Click(object sender, EventArgs e)

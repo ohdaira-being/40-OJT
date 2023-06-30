@@ -56,6 +56,8 @@ namespace InvaderGame
         private Brush brushes = Brushes.White; //敵を塗る配列
         private double nowTime = 0; //経過時間
         private List<Enemy> EnemyList;
+        private string jikipath = @"..\..\Image\Jiki.png";
+        private string enemypath = @"..\..\Image\InvaderM.png";
 
 
 
@@ -154,7 +156,7 @@ namespace InvaderGame
 
             for (int i = 0; i < EnemiesCount; i++)
             {
-                Enemies[i] = new Enemy(pictureBox1, canvas, brushes);
+                Enemies[i] = new Enemy(pictureBox1, canvas, brushes,enemypath);
             }
 
             Enemies[0].positionsX = 10;
@@ -210,7 +212,7 @@ namespace InvaderGame
 
             bullets = new Bullet(pictureBox1, canvas, Brushes.Red);
             pictureBoxSpaceship.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxSpaceship.Image = Image.FromFile(@"C:\Users\kurosu\Desktop\OJTインベーダーゲーム\InvaderGame\InvaderGame\Image\Jiki.png");
+            pictureBoxSpaceship.Image = Image.FromFile(jikipath);
         }
 
 
@@ -559,7 +561,7 @@ namespace InvaderGame
                 Enemies = new Enemy[EnemiesCount];
                 for (int j = 0; j < EnemiesCount; j++)
                 {
-                    Enemies[j] = new Enemy(pictureBox1, canvas, brushes);
+                    Enemies[j] = new Enemy(pictureBox1, canvas, brushes, enemypath);
                 }
 
 

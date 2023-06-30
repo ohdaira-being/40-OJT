@@ -20,7 +20,7 @@ namespace InvaderGame
             _str = str;
 
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.Image = Image.FromFile(@"C:\Users\kurosu\Desktop\OJTインベーダーゲーム\InvaderGame\InvaderGame\Image\スコア.png");
+            pictureBox1.Image = Image.FromFile(@"..\..\Image\スコア.png");
 
         }
         private void Form_KeyDown(object sender, KeyEventArgs e)
