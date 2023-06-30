@@ -246,7 +246,7 @@ namespace InvaderGame
             Graphics g = Graphics.FromImage(canvas);
 
             //画像ファイルを読み込んで、Imageオブジェクトとして取得する
-            Image img = Image.FromFile(@"C:\Users\kurosu\Desktop\OJTインベーダーゲーム\InvaderGame\InvaderGame\Image\InvaderM.png");
+            Image img = Image.FromFile(enemypath);
 
             
             g.DrawImage(img, x, y, 50, 30);
